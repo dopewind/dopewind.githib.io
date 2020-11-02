@@ -10,6 +10,7 @@ dist: focal
 script:
   - npm install
   - npx stylelint "**/*.css" > css_errors.txt
+  - npx stylelint "**/*.scss" > scss_errors.txt
 
 after_script:
   - bash .travis/tg_notify.sh
