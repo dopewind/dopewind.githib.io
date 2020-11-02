@@ -18,7 +18,7 @@ fi
 # HTML, depending on how you want to format your message:
 send_msg () {
     curl -s -X POST "${BOT_URL}" -d chat_id="$TELEGRAM_CHAT_ID" \
-        -d text=$1 -d parse_mode=${PARSE_MODE}
+        -d text="$1" -d parse_mode="${PARSE_MODE}"
 }
 
 # Send message to the bot with some pertinent details about the job
