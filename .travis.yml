@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+  - node
+cache:
+  directories:
+    - "node_modules"
+os: linux
+dist: focal
+
+script:
+  - npm install
+  - npx stylelint "**/*.css" > css_errors.txt
+
+after_script:
+  - bash .travis/tg_notify.sh
