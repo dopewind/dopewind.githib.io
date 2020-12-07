@@ -37,10 +37,6 @@ Travis build *${build_status}!*
 ${TRAVIS_COMMIT_MESSAGE}
 
 [Job Log here](${TRAVIS_JOB_WEB_URL})
-
-Linking the css and scss errors
-[css errors](${csslink})
-[scss errors](${scsslink})
 --------------------------------------
 "
 
