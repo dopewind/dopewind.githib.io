@@ -33,5 +33,10 @@ Travis build *${build_status}!*
 ${TRAVIS_COMMIT_MESSAGE}
 
 [Job Log here](${TRAVIS_JOB_WEB_URL})
+
+Sending css and scss errors, if any
 --------------------------------------
 "
+
+curl -v -F "chat_id=$TELEGRAM_CHAT_ID" -F document=../css_errors.txt https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendDocument
+curl -v -F "chat_id=$TELEGRAM_CHAT_ID" -F document=../scss_errors.txt https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendDocument
