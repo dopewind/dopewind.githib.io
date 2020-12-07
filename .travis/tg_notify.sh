@@ -21,6 +21,10 @@ send_msg () {
         -d text="$1" -d parse_mode="${PARSE_MODE}"
 }
 
+#uploading the files
+csslink=$(curl --upload-file ../css_errors.txt "https://free.keep.sh/css_erros_$TRAVIS_JOB_NUMBER.txt")
+scsslink=$(curl --upload-file ../scss_errors.txt "https://free.keep.sh/scss_erros_$TRAVIS_JOB_NUMBER.txt")
+
 # Send message to the bot with some pertinent details about the job
 # Note that for Markdown, you need to escape any backtick (inline-code)
 # characters, since they're reserved in bash
@@ -34,9 +38,10 @@ ${TRAVIS_COMMIT_MESSAGE}
 
 [Job Log here](${TRAVIS_JOB_WEB_URL})
 
-Sending css and scss errors, if any
+Linking the css and scss errors
+[css errors](${csslink})
+[scss errors](${scsslink})
 --------------------------------------
 "
 
-curl -v -F "chat_id=$TELEGRAM_CHAT_ID" -F document=../css_errors.txt https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendDocument
-curl -v -F "chat_id=$TELEGRAM_CHAT_ID" -F document=../scss_errors.txt https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendDocument
+
